@@ -1,0 +1,81 @@
+Mavenized version of the JADE Book Trading example
+==================================================
+
+Usage
+-----
+
+To try JADE with this example, follow these steps:
+
+1. Open a terminal and run the main agent container with
+
+       ./start-main-container.sh
+
+   The GUI for the JADE remote monitor agent should pop up.Leave the terminal open.
+
+2. Open another terminal and run one or more seller agents with
+
+       ./start-seller.sh host agentname
+
+   where 'host' is the hostname of the machine running the main agent
+   container and 'agentname' is the name of the agent.
+   'localhost' and 's1' will work fine from the
+   same machine running the main container.
+
+   This command will display a dialog asking for the name and price
+   of all the books that can be sold by that agent. Keep entering as
+   many names and prices as you want.
+
+3. Once all the books have been entered, open another terminal
+   and run the buyer agent with
+
+       ./start-buyer.sh host agentname bookname
+
+   where 'host' and 'agentname' play the same roles as before, and
+   'bookname' is the name of the book that the agent should get for
+   as cheap as possible.
+
+Short instruction
+-----------------
+
+1. ./start-main-container.sh
+
+2. ./start-seller.sh localhost s1
+
+3. Enter some books
+
+4. ./start-buyer.sh localhost b1 MyBook
+
+5. Wait a minute for the buyer to ask for the list of sellers
+   and ask for a deal
+
+Output
+------
+
+INFO: --------------------------------------
+Agent container Main-Container@192.168.50.200 is ready.
+--------------------------------------------
+
+INFO: --------------------------------------
+Agent container Container-2@192.168.50.200 is ready.
+--------------------------------------------
+Lord of the Rings inserted into catalogue. Price = 37
+Harry Potter inserted into catalogue. Price = 65
+Jade Tutorial inserted into catalogue. Price = 49
+Jade Tutorial sold to agent b1@192.168.50.200:1099/JADE
+
+
+INFO: --------------------------------------
+Agent container Container-3@192.168.50.200 is ready.
+--------------------------------------------
+Hello! Buyer-agent b1@192.168.50.200:1099/JADE is ready.
+Target book is Jade Tutorial
+Trying to buy Jade Tutorial
+Found the following seller agents:
+s1@192.168.50.200:1099/JADE
+Jade Tutorial successfully purchased from agent s1@192.168.50.200:1099/JADE
+Price = 49
+Buyer-agent b1@192.168.50.200:1099/JADE terminating.
+
+
+
+
